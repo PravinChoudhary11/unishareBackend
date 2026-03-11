@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: unishare
+
+  datasource:
+    url: jdbc:postgresql://your-db-host:5432/your-database
+    username: your-db-username
+    password: your-db-password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      auto-commit: false
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+
+frontend:
+  url: http://localhost:3000
+
+
+google:
+  clientId: your-google-client-id
+  clientSecret: your-google-client-secret
+  redirectURL: http://localhost:8080/auth/google/callback
+  auth:
+    endPoint: https://oauth2.googleapis.com/token
+
+
+jwt:
+  secret: your-base64-jwt-secret
+  expiry: 86400000
+
+
+production:
+  status: false
+
+
+github:
+  clientId: your-github-client-id
+  clientSecret: your-github-client-secret
+  redirectUrl: http://localhost:8080/auth/github/callback
+  tokenUrl: https://github.com/login/oauth/access_token
+  userUrl: https://api.github.com/user
+
+
+cloudinary:
+  cloud-name: your-cloudinary-cloud-name
+  api-key: your-cloudinary-api-key
+  api-secret: your-cloudinary-api-secret
